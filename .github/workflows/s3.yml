@@ -1,0 +1,19 @@
+name: Stop EC2 Instance
+
+on:
+  workflow_dispatch:
+
+jobs:
+  stop-ec2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: AKIATPDA4GIEERGH5DU2
+          aws-secret-access-key: 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
+          aws-region: ap-south-1
+
+      - name: Stop EC2 Instance
+        run: aws ec2 stop-instances --instance-ids i-036985359fea2d2d9
